@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indonesia's Famous Islands: Bali and Lombok</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="things.css"> <!-- Link to things.css -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to Indonesia's Famous Islands</h1>
+        <nav>
+            <ul class="navigation">
+                <li><a href="things_in_bali.html">Things to Do in Bali</a></li>
+                <li><a href="things_to_do.html">Things to Do in Lombok</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="bali">
+        <h2>Bali</h2>
+        <div class="bali-content">
+            <div class="bali-text">
+                <p>Lombok is an island in the West Nusa Tenggara province of Indonesia. It is part of the chain of the Lesser Sunda Islands, with the Lombok Strait separating it from Bali to the west and the Alas Strait between it and Sumbawa to the east.</p>
+                <ol>
+                    <li><strong>South Bali</strong><br>
+                        South Bali includes Kuta, Western Bukit and Uluwatu, Canggu, Denpasar, Jimbaran, Legian, Nusa Dua, Sanur, Seminyak, and Tanah Lot. Here you are in the most visited part of the island by far, with tourists flocking to world renowned Kuta Beach and chic Seminyak.
+                    </li>
+                    <li><strong>Central Bali</strong><br>
+                        Central Bali includes Ubud, Gianyar, Bedugul, and Tabanan. This region is the cultural heart of Bali and the central mountain range.
+                    </li>
+                    <li><strong>West Bali</strong><br>
+                        West Bali includes Negara, Gilimanuk, Medewi Beach, and Pemuteran. You have here access to ferries to Java and the West Bali National Park.
+                    </li>
+                    <li><strong>North Bali</strong><br>
+                        North Bali includes Lovina, and Singaraja. You can enjoy quiet black sand beaches and the old capital city.
+                    </li>
+                    <li><strong>East Bali</strong><br>
+                        East Bali includes Amed, Besakih, Candidasa, Kintamani, Klungkung, Mount Agung, Padang Bai, and Tirta Gangga. Here, you can discover another atmosphere with laid back coastal villages, an active volcano and the mighty Mount Agung.
+                    </li>
+                </ol>
+            </div>
+            <div class="bali-image">
+                <img src="Photos/bali_regions_map.jpg" alt="Map of Bali regions">
+            </div>
+        </div>
+    </section>
+
+    <section id="lombok">
+        <h2>Lombok</h2>
+        <div class="lombok-content">
+            <div class="lombok-text">
+                <p>Lombok is an island in the West Nusa Tenggara province of Indonesia. It is part of the chain of the Lesser Sunda Islands, with the Lombok Strait separating it from Bali to the west and the Alas Strait between it and Sumbawa to the east.</p>
+                <ol>
+                    <li><strong>West Lombok (Bangsal, Lembar, Mataram, Tanjung, Senggigi)</strong><br>
+                        The administrative centre, well known beaches and the vast majority of the developed tourism infrastructure on the island and gateway to the famous Gili islands.
+                    </li>
+                    <li><strong>North Lombok (Mount Rinjani, Senaru)</strong><br>
+                        Mighty Mount Rinjani, waterfalls, glorious scenery and home to the Waktu Telu traditions.
+                    </li>
+                    <li><strong>Central and East Lombok (Praya, Labuhan Lombok, Selong, Tetebatu)</strong><br>
+                        Quiet rural villages and beaches and ferry departures eastward to Sumbawa and onward to Flores.
+                    </li>
+                    <li><strong>South Lombok (Kuta, Sekotong, Tanjung Aan)</strong><br>
+                        Magnificent remote beaches and surfing heaven.
+                    </li>
+                    <li><strong>Gili Islands (Gili Air, Gili Meno, Gili Trawangan)</strong><br>
+                        Tiny islands off the west coast, popular with divers and a vital cog in the Asian backpacker circuit.
+                    </li>
+                </ol>
+            </div>
+            <div class="lombok-image">
+                <img src="Photos/regions_map.jpg" alt="Map of Lombok regions">
+            </div>
+        </div>
+    </section>
+
+    <section id="weather-forecast">
+        <script>
+            function getweather(){
+                var city = document.getElementById("Search").value;
+                var units = document.getElementById("units").value;
+                fetch("http://api.weatherstack.com/current?access_key=ee6f91806f6b37c3cf017c0362b966bf&query=" + city + "&units=" + units)
+                .then(response => response.json())
+                .then(response => {
+                    document.getElementById("image").src = response.current.weather_icons[0];
+                    document.getElementById("output").innerHTML = "<h1>" + response.current.weather_descriptions[0] + "</h1>Temperature: " + response.current.temperature + "<br>Feels like: " + response.current.feelslike + "<br>UV index: " + response.current.uv_index + "<br>Humidity: " + response.current.humidity + "<br>Cloud cover: " + response.current.cloudcover;
+                });
+            }
+        </script>
+        <h2>Weather Forecast</h2>
+        <input placeholder="City/ZIP" id="Search">
+        <select id="units">
+            <option value="f">Fahrenheit</option>
+            <option value="m">Celsius</option>
+        </select>
+        <button onclick="getweather()">Get Weather!</button>
+        <img id="image" style="border-radius:5px;"/>
+        <div id="output"></div>
+    </section>    
+
+    <section id="budget-tracker">
+        <h2>Budget Tracker</h2>
+        <div>
+            <label for="expense-description">Description:</label>
+            <input type="text" id="expense-description" />
+        </div>
+        <div>
+            <label for="expense-amount">Amount:</label>
+            <input type="number" id="expense-amount" />
+        </div>
+        <button id="add-expense">Add Expense</button>
+
+        <h3>Expenses</h3>
+        <ul id="expense-list"></ul>
+
+        <h3>Total: $<span id="total-amount">0</span></h3>
+    </section>
+
+    <script src="budgetTracker.js"></script>
+    <script src="weather.js"></script>
+</body>
+</html>

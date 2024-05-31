@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #333;
+}
+
+#budget-tracker div {
+    margin-bottom: 10px;
+}
+
+#budget-tracker input {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+#add-expense {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#add-expense:hover {
+    background-color: #45a049;
+}
+
+#expense-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#expense-list li {
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Add space between list items in the Lombok section */
+#lombok ol li {
+    margin-bottom: 10px;
+}
+
+/* Lombok section layout */
+.lombok-content {
+    display: flex;
+    gap: 20px;
+}
+
+.lombok-text {
+    flex: 1;
+}
+
+.lombok-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lombok-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Add space between list items in the Bali section */
+#bali ol li {
+    margin-bottom: 10px;
+}
+
+/* Bali section layout */
+.bali-content {
+    display: flex;
+    gap: 20px;
+}
+
+.bali-text {
+    flex: 1;
+}
+
+.bali-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bali-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
