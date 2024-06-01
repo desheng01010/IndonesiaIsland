@@ -19,17 +19,6 @@ function addExpense() {
     const li = document.createElement("li");
     li.innerHTML = `${description} - $${amount.toFixed(2)}`;
     
-    // Create remove button
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.onclick = function() {
-        li.remove();
-        updateTotal();
-    };
-    
-    // Append remove button to list item
-    li.appendChild(removeButton);
-    
     // Append list item to expense list
     expenseList.appendChild(li);
 
