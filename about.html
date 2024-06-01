@@ -81,7 +81,7 @@
             function getweather(){
                 var city = document.getElementById("Search").value;
                 var units = document.getElementById("units").value;
-                fetch("http://api.weatherstack.com/current?access_key=ee6f91806f6b37c3cf017c0362b966bf&query=" + city + "&units=" + units)
+                fetch("https://api.weatherstack.com/current?access_key=ee6f91806f6b37c3cf017c0362b966bf&query=" + city + "&units=" + units)
                 .then(response => response.json())
                 .then(response => {
                     document.getElementById("image").src = response.current.weather_icons[0];
